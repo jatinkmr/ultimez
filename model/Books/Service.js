@@ -15,11 +15,10 @@ const fetchBookId = async bookId => {
 }
 
 const updateBookData = async reqBodyData => {
-    return await Books.updateOne({
-        bookname: reqBodyData.bookname,
-        author: reqBodyData.author
-    }, {
-        '_id': reqBodyData.bookid
+    return await Books.findOneAndUpdate({
+        _id: reqBodyData.bookid
+    }, reqBodyData, {
+        new: true
     })
 }
 

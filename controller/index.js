@@ -5,7 +5,6 @@ const newBookCreationController = async (req, res, next) => {
     try {
         const { error } = newBookSchemaValidation(req.body)
         if (error) {
-            console.log('error :- ', error)
             return res.status(200).json({
                 error: true,
                 message: error
@@ -93,7 +92,6 @@ const updateBookController = async (req, res, next) => {
             })
         }
     } catch (error) {
-        console.log('error', error)
         next(error)
     }
 }
